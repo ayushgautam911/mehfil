@@ -1,0 +1,44 @@
+<!-- @dsCard group="Brand" viewport="700x220" name="Glow & corner brackets" subtitle="Phosphor glow conveys depth; brackets frame focal blocks" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body {
+    background: var(--surface-page);
+    font-family: var(--font-sans);
+    min-height: 220px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-xxl);
+    padding: var(--sp-xl);
+  }
+  .frame {
+    position: relative;
+    padding: var(--sp-xl) var(--sp-xxl);
+  }
+  .frame .b { position: absolute; width: 12px; height: 12px; border-color: var(--accent-primary); }
+  .tl { top: 0; left: 0; border-top: 1.5px solid; border-left: 1.5px solid; }
+  .tr { top: 0; right: 0; border-top: 1.5px solid; border-right: 1.5px solid; }
+  .bl { bottom: 0; left: 0; border-bottom: 1.5px solid; border-left: 1.5px solid; }
+  .br { bottom: 0; right: 0; border-bottom: 1.5px solid; border-right: 1.5px solid; }
+  .frame .txt { font-size: var(--fs-md); letter-spacing: var(--ls-wide); color: var(--text-primary); text-transform: uppercase; }
+  .glow-stack { display: flex; flex-direction: column; gap: var(--sp-md); align-items: center; }
+  .dot { width: 56px; height: 56px; background: var(--accent-primary); }
+  .lbl { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--text-secondary); text-transform: uppercase; }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <span class="b tl"></span><span class="b tr"></span>
+    <span class="b bl"></span><span class="b br"></span>
+    <span class="txt">[ FOCAL BLOCK ]</span>
+  </div>
+  <div class="glow-stack"><div class="dot" style="box-shadow: var(--glow-green-sm)"></div><span class="lbl">glow sm</span></div>
+  <div class="glow-stack"><div class="dot" style="box-shadow: var(--glow-green-md)"></div><span class="lbl">glow md</span></div>
+</body>
+</html>

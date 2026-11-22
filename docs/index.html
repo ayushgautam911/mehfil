@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HIVE — Design System</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  html, body { margin: 0; background: var(--surface-page); }
+  * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--font-sans); color: var(--text-primary); min-height: 100vh; position: relative; overflow-x: hidden; }
+  .scan { position: fixed; inset: 0; pointer-events: none; z-index: 2;
+    background-image: repeating-linear-gradient(to bottom, rgba(255,255,255,0.015) 0, rgba(255,255,255,0.015) 1.5px, transparent 1.5px, transparent 4px);
+    animation: scan 0.8s linear infinite; }
+  @keyframes scan { from { background-position-y: 0; } to { background-position-y: 4px; } }
+  @media (prefers-reduced-motion: reduce) { .scan { animation: none; } }
+  .wrap { position: relative; z-index: 3; max-width: 1080px; margin: 0 auto; padding: 64px 32px 80px; }
+
+  /* corner readouts */
+  .corner { position: fixed; z-index: 3; font-size: 9px; letter-spacing: var(--ls-wide); color: var(--text-dim); pointer-events: none; }
+  .c-tl { top: 18px; left: 20px; } .c-tr { top: 18px; right: 20px; }
+  .c-bl { bottom: 18px; left: 20px; } .c-br { bottom: 18px; right: 20px; }
+
+  header { text-align: center; padding: 40px 0 64px; }
+  .mark { display: inline-block; position: relative; padding: 22px 40px; margin-bottom: 22px; }
+  .mark .b { position: absolute; width: 16px; height: 16px; border-color: var(--text-dim); }
+  .tl { top: 0; left: 0; border-top: 1.5px solid; border-left: 1.5px solid; }
+  .tr { top: 0; right: 0; border-top: 1.5px solid; border-right: 1.5px solid; }
+  .bl { bottom: 0; left: 0; border-bottom: 1.5px solid; border-left: 1.5px solid; }
+  .br { bottom: 0; right: 0; border-bottom: 1.5px solid; border-right: 1.5px solid; }
+  h1 { font-weight: var(--fw-bold); font-size: var(--fs-hero); letter-spacing: var(--ls-wordmark); margin: 0; text-shadow: var(--text-glow-green); white-space: nowrap; }
+  .tagline { font-weight: var(--fw-bold); font-size: var(--fs-lg); letter-spacing: var(--ls-extra-wide); margin: 8px 0 0; }
+  .sub { font-size: var(--fs-xs); letter-spacing: var(--ls-extra-wide); color: var(--text-secondary); text-transform: uppercase; margin: 12px 0 0; }
+
+  .label { font-size: var(--fs-xs); letter-spacing: var(--ls-extra-wide); color: var(--accent-primary); text-transform: uppercase; margin: 0 0 18px; }
+  section { margin-bottom: 56px; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-lg); }
+  .card { display: block; text-decoration: none; color: inherit; border: 1px solid var(--border-hairline); background: var(--surface-card); padding: 26px; position: relative; transition: border-color 140ms, box-shadow 140ms, transform 140ms; }
+  .card:hover { border-color: var(--accent-primary); box-shadow: var(--glow-green-md); transform: translateY(-2px); }
+  .card .kicker { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--accent-secondary); text-transform: uppercase; margin: 0 0 10px; }
+  .card h2 { font-weight: var(--fw-bold); font-size: var(--fs-xl); letter-spacing: var(--ls-wide); text-transform: uppercase; margin: 0 0 10px; }
+  .card p { font-size: var(--fs-sm); color: var(--text-secondary); line-height: var(--lh-body); margin: 0 0 16px; }
+  .card .go { font-size: var(--fs-xs); letter-spacing: var(--ls-extra-wide); color: var(--accent-primary); text-transform: uppercase; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tag { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--accent-secondary); border: 1px solid var(--border-hairline); padding: 2px 8px; }
+
+  .foundations { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-md); }
+  .fcard { display: block; text-decoration: none; color: inherit; border: 1px solid var(--border-hairline); padding: 16px; transition: border-color 140ms, background 140ms; }
+  .fcard:hover { border-color: var(--accent-primary); background: var(--accent-primary-wash); }
+  .fcard .t { font-weight: var(--fw-bold); font-size: var(--fs-sm); letter-spacing: var(--ls-wide); text-transform: uppercase; margin: 0; }
+  .fcard .d { font-size: var(--fs-xs); color: var(--text-secondary); margin: 6px 0 0; }
+
+  footer { border-top: 0.5px solid var(--border-hairline); padding-top: 24px; display: flex; flex-direction: column; gap: 6px; }
+  footer span { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-dim); letter-spacing: var(--ls-wide); }
+  @media (max-width: 720px) { .grid, .foundations { grid-template-columns: 1fr; } h1 { font-size: var(--fs-xxxl); } }
+</style>
+</head>
+<body>
+  <div class="scan"></div>
+  <span class="corner c-tl">N-SEA</span>
+  <span class="corner c-tr">0X-88</span>
+  <span class="corner c-bl">SYS / DESIGN</span>
+  <span class="corner c-br">V1.0</span>
+
+  <div class="wrap">
+    <header>
+      <div class="mark">
+        <span class="b tl"></span><span class="b tr"></span><span class="b bl"></span><span class="b br"></span>
+        <h1>H I V E</h1>
+      </div>
+      <p class="tagline">DESIGN SYSTEM</p>
+      <p class="sub">Terminal Reductionism / Neo-Teletech · Private events. Curated access.</p>
+    </header>
+
+    <section>
+      <p class="label">// PROTOTYPES</p>
+      <div class="grid">
+        <a class="card" href="ui_kits/hive-member-app/index.html">
+          <p class="kicker">MEMBER APP · IOS</p>
+          <h2>Hive</h2>
+          <p>The event-goer's app. Discover events, join collectives, request passes, chat with your scene.</p>
+          <div class="tags"><span class="tag">Feed</span><span class="tag">Collectives</span><span class="tag">Passes</span><span class="tag">Chat</span><span class="tag">Profile</span></div>
+          <p class="go" style="margin-top:18px">ENTER →</p>
+        </a>
+        <a class="card" href="ui_kits/hive-console/index.html">
+          <p class="kicker">CONSOLE · WEB</p>
+          <h2>Hive Console</h2>
+          <p>The organizer's console. Run a collective — screen members, publish events, approve passes, scan at the door.</p>
+          <div class="tags"><span class="tag">Dashboard</span><span class="tag">Membership</span><span class="tag">Events</span><span class="tag">Scanner</span></div>
+          <p class="go" style="margin-top:18px">ENTER →</p>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <p class="label">// FOUNDATIONS</p>
+      <div class="foundations">
+        <a class="fcard" href="guidelines/brand-wordmark.html"><p class="t">Brand</p><p class="d">Wordmark · scanlines · glow</p></a>
+        <a class="fcard" href="guidelines/colors-accents.html"><p class="t">Color</p><p class="d">Phosphor accents · text ramp</p></a>
+        <a class="fcard" href="guidelines/type-display.html"><p class="t">Type</p><p class="d">Space Grotesk · tracking</p></a>
+        <a class="fcard" href="guidelines/spacing-scale.html"><p class="t">Spacing</p><p class="d">4px ramp · rhythm</p></a>
+        <a class="fcard" href="components/actions/buttons.card.html"><p class="t">Components</p><p class="d">Buttons · forms · data</p></a>
+        <a class="fcard" href="README.md"><p class="t">Docs</p><p class="d">Full guide (README.md)</p></a>
+      </div>
+    </section>
+
+    <footer>
+      <span>STACK: HTML · REACT (BABEL) · DESIGN TOKENS (styles.css)</span>
+      <span>SOURCE: hive/member-app (Expo) · CONSOLE: net-new extrapolation</span>
+      <span>STATUS: PROTOTYPE · MOCKED DATA · IN-MEMORY NAV</span>
+    </footer>
+  </div>
+</body>
+</html>

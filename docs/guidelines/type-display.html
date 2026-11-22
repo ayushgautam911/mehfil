@@ -1,0 +1,28 @@
+<!-- @dsCard group="Type" viewport="700x230" name="Display & Title" subtitle="Bold, uppercase, wide tracking — screen titles & event names" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body {
+    background: var(--surface-page);
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    padding: var(--sp-xl) var(--sp-xl);
+    box-sizing: border-box;
+  }
+  .row { display: flex; align-items: baseline; gap: var(--sp-lg); margin-bottom: var(--sp-lg); }
+  .meta { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--text-dim); width: 130px; flex: none; }
+  .d-xxxl { font-weight: var(--fw-bold); font-size: var(--fs-xxxl); letter-spacing: var(--ls-ultra-wide); }
+  .d-xxl  { font-weight: var(--fw-bold); font-size: var(--fs-xxl);  letter-spacing: var(--ls-extra-wide); }
+  .d-xl   { font-weight: var(--fw-bold); font-size: var(--fs-xl);   letter-spacing: var(--ls-wide); }
+</style>
+</head>
+<body>
+  <div class="row"><span class="meta">36 · 700 · +8</span><span class="d-xxxl">MONOLITH</span></div>
+  <div class="row"><span class="meta">26 · 700 · +4</span><span class="d-xxl">VOID: WAREHOUSE</span></div>
+  <div class="row"><span class="meta">20 · 700 · +2</span><span class="d-xl">CHARLOTTE DE WITTE</span></div>
+</body>
+</html>

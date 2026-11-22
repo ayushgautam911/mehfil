@@ -1,0 +1,95 @@
+/* ============================================================
+   HIVE design tokens — web mirror of member-app/constants/theme.ts
+   Terminal Reductionism / Neo-Teletech. Consume these CSS custom
+   properties; never hard-code brand hex/px in components.
+   ============================================================ */
+:root {
+  /* --- Raw ground & structure --- */
+  --hive-black:        #000000;
+  --hive-surface:      #0d0d0d;
+  --hive-surface-2:    #0a0a0a;
+  --hive-border:       #1a1a1a;
+
+  /* --- Phosphor accents --- */
+  --hive-green:        #00ff41;
+  --hive-green-bg:     rgba(0, 255, 65, 0.06);
+  --hive-green-line:   rgba(0, 255, 65, 0.30);
+  --hive-cyan:         #0abdc6;
+
+  /* --- Text ramp (warm neutral, never #fff) --- */
+  --hive-text:         #e8e8e8;
+  --hive-text-2:       #606060;
+  --hive-text-dim:     #333333;
+
+  /* --- Semantic aliases (prefer these) --- */
+  --surface-page:        var(--hive-black);
+  --surface-card:        var(--hive-surface);
+  --surface-chrome:      var(--hive-surface-2);
+  --border-hairline:     var(--hive-border);
+  --border-active:       var(--hive-green);
+  --border-glow:         var(--hive-green-line);
+
+  --accent-primary:      var(--hive-green);
+  --accent-primary-wash: var(--hive-green-bg);
+  --accent-secondary:    var(--hive-cyan);
+  --on-accent:           var(--hive-black);
+
+  --text-primary:        var(--hive-text);
+  --text-secondary:      var(--hive-text-2);
+  --text-dim:            var(--hive-text-dim);
+
+  /* --- Borders & radius --- */
+  --border:              1px solid var(--border-hairline);
+  --border-accent:       1px solid var(--accent-primary);
+  --radius-none:         0px;
+  --radius-pill:         28px;
+
+  /* --- Glow (depth via phosphor, not shadow) --- */
+  --glow-green-sm:       0 0 8px rgba(0, 255, 65, 0.55);
+  --glow-green-md:       0 0 15px rgba(0, 255, 65, 0.45);
+  --text-glow-green:     0 0 8px var(--accent-primary);
+  --text-glow-green-lg:  0 0 15px var(--accent-primary);
+  --shadow-float:        0 4px 10px rgba(0, 255, 65, 0.08);
+
+  /* --- Typography --- */
+  --font-sans: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Space Mono", "SF Mono", ui-monospace, monospace;
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-bold:    700;
+
+  --fs-xs:    10px;
+  --fs-sm:    12px;
+  --fs-md:    14px;
+  --fs-lg:    16px;
+  --fs-xl:    20px;
+  --fs-xxl:   26px;
+  --fs-xxxl:  36px;
+  --fs-hero:  48px;
+
+  --ls-tight:       0.5px;
+  --ls-normal:      1px;
+  --ls-wide:        2px;
+  --ls-extra-wide:  4px;
+  --ls-ultra-wide:  8px;
+  --ls-wordmark:    16px;
+
+  --lh-tight:  1.1;
+  --lh-snug:   1.3;
+  --lh-body:   1.5;
+
+  /* --- Spacing (4px ramp) --- */
+  --sp-xs:   4px;
+  --sp-sm:   8px;
+  --sp-md:   12px;
+  --sp-lg:   16px;
+  --sp-xl:   24px;
+  --sp-xxl:  36px;
+  --sp-xxxl: 56px;
+  --gutter:  var(--sp-lg);
+
+  /* --- Scanline overlay --- */
+  --scanline-color:  rgba(255, 255, 255, 0.015);
+  --scanline-height: 1.5px;
+  --scanline-gap:    2.5px;
+}

@@ -1,0 +1,6 @@
+# Local secrets — never commit
+.env
+.env.local
+
+# ...but keep the template tracked (root .gitignore's ".env.*" would hide it)
+!.env.example

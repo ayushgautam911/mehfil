@@ -1,0 +1,26 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Text Ramp" subtitle="Three warm-neutral greys. There is no white — brightest is #e8e8e8" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body {
+    background: var(--surface-page);
+    font-family: var(--font-sans);
+    padding: var(--sp-xl);
+    box-sizing: border-box;
+  }
+  .row { display: flex; align-items: center; gap: var(--sp-lg); padding: var(--sp-sm) 0; }
+  .hex { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-dim); width: 90px; flex: none; }
+  .name { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); width: 150px; flex: none; text-transform: uppercase; }
+  .sample { font-size: var(--fs-lg); letter-spacing: var(--ls-normal); }
+</style>
+</head>
+<body>
+  <div class="row"><span class="hex">#e8e8e8</span><span class="name" style="color: var(--text-primary)">Primary</span><span class="sample" style="color: var(--text-primary)">void: warehouse session</span></div>
+  <div class="row"><span class="hex">#606060</span><span class="name" style="color: var(--text-secondary)">Secondary</span><span class="sample" style="color: var(--text-secondary)">sat mar 22 · 23:00 · warehouse</span></div>
+  <div class="row"><span class="hex">#333333</span><span class="name" style="color: var(--text-secondary)">Dim</span><span class="sample" style="color: var(--text-dim)">session: 0x8f71...a13</span></div>
+</body>
+</html>

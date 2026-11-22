@@ -1,0 +1,28 @@
+<!-- @dsCard group="Type" viewport="700x260" name="Letter-spacing scale" subtitle="Tracking is the brand's signature — wider = more machine" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body {
+    background: var(--surface-page);
+    font-family: var(--font-sans);
+    padding: var(--sp-xl);
+    box-sizing: border-box;
+  }
+  .row { display: flex; align-items: baseline; gap: var(--sp-lg); margin-bottom: var(--sp-md); }
+  .meta { font-size: var(--fs-xs); letter-spacing: var(--ls-normal); color: var(--text-dim); width: 150px; flex: none; }
+  .sample { font-size: var(--fs-md); color: var(--text-primary); text-transform: uppercase; font-weight: var(--fw-medium); }
+</style>
+</head>
+<body>
+  <div class="row"><span class="meta">tight · 0.5px</span><span class="sample" style="letter-spacing: var(--ls-tight)">ENTER THE HIVE</span></div>
+  <div class="row"><span class="meta">normal · 1px</span><span class="sample" style="letter-spacing: var(--ls-normal)">ENTER THE HIVE</span></div>
+  <div class="row"><span class="meta">wide · 2px</span><span class="sample" style="letter-spacing: var(--ls-wide)">ENTER THE HIVE</span></div>
+  <div class="row"><span class="meta">extra · 4px</span><span class="sample" style="letter-spacing: var(--ls-extra-wide)">ENTER THE HIVE</span></div>
+  <div class="row"><span class="meta">ultra · 8px</span><span class="sample" style="letter-spacing: var(--ls-ultra-wide)">ENTER THE HIVE</span></div>
+  <div class="row"><span class="meta">wordmark · 16px</span><span class="sample" style="letter-spacing: var(--ls-wordmark); color: var(--text-primary); text-shadow: var(--text-glow-green)">HIVE</span></div>
+</body>
+</html>

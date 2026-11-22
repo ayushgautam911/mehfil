@@ -1,0 +1,29 @@
+<!-- @dsCard group="Spacing" viewport="700x250" name="Rhythm & dividers" subtitle="Sections separated by hairlines + vertical space, not boxes" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body {
+    background: var(--surface-page);
+    font-family: var(--font-sans);
+    padding: var(--sp-xl) var(--gutter);
+    box-sizing: border-box;
+    color: var(--text-primary);
+  }
+  .section-label { font-size: var(--fs-xs); letter-spacing: var(--ls-extra-wide); color: var(--accent-primary); text-transform: uppercase; margin: var(--sp-xl) 0 var(--sp-md); }
+  .section-label:first-child { margin-top: 0; }
+  .item { padding: var(--sp-md) 0; border-bottom: var(--border-hair) solid var(--border-hairline); font-size: var(--fs-md); letter-spacing: var(--ls-wide); }
+  .sub { font-size: var(--fs-xs); color: var(--text-secondary); letter-spacing: var(--ls-normal); margin-top: 2px; }
+</style>
+</head>
+<body>
+  <div class="section-label">// LINEUP</div>
+  <div class="item">CHARLOTTE DE WITTE</div>
+  <div class="item">KOBOSIL<div class="sub">b2b set · 02:00</div></div>
+  <div class="section-label">// LOCATION</div>
+  <div class="item" style="color: var(--text-secondary)">address revealed 3hrs before <span style="color: var(--accent-primary)">[LOCKED]</span></div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "version": "6",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1781402300879,
+      "tag": "0000_sudden_phalanx",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1783631031732,
+      "tag": "0001_complex_wallow",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1783644398350,
+      "tag": "0002_tidy_harpoon",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1783646140789,
+      "tag": "0003_colossal_true_believers",
+      "breakpoints": true
+    }
+  ]
+}

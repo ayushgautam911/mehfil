@@ -1,0 +1,46 @@
+/* ============================================================
+   COLORS — Terminal palette
+   Pure black ground, two phosphor accents (green + cyan),
+   a three-step warm-neutral grey text ramp. Saturation is
+   reserved entirely for the two accents; everything else is
+   neutral. There is no white — the brightest surface is #e8e8e8.
+   ============================================================ */
+:root {
+  /* --- Raw ground & structure --- */
+  --hive-black:        #000000;  /* the page. always pure black */
+  --hive-surface:      #0d0d0d;  /* raised panel / input well */
+  --hive-surface-2:    #0a0a0a;  /* floating chrome (tab bar) */
+  --hive-border:       #1a1a1a;  /* hairline dividers & chip outlines */
+
+  /* --- Phosphor accents --- */
+  --hive-green:        #00ff41;  /* primary signal: active, match, CTA */
+  --hive-green-bg:     rgba(0, 255, 65, 0.06);  /* accent fill wash */
+  --hive-green-line:   rgba(0, 255, 65, 0.30);  /* glow borders / dividers */
+  --hive-cyan:         #0abdc6;  /* secondary signal: genres, labels, meta */
+
+  /* --- Text ramp (warm neutral) --- */
+  --hive-text:         #e8e8e8;  /* primary readout — never #fff */
+  --hive-text-2:       #606060;  /* secondary / supporting */
+  --hive-text-dim:     #333333;  /* faint metadata, disabled, placeholder */
+
+  /* ========================================================
+     SEMANTIC ALIASES — prefer these in product code
+     ======================================================== */
+  --surface-page:      var(--hive-black);
+  --surface-card:      var(--hive-surface);
+  --surface-chrome:    var(--hive-surface-2);
+  --border-hairline:   var(--hive-border);
+  --border-active:     var(--hive-green);
+  --border-glow:       var(--hive-green-line);
+
+  --accent-primary:    var(--hive-green);
+  --accent-primary-wash: var(--hive-green-bg);
+  --accent-secondary:  var(--hive-cyan);
+  --on-accent:         var(--hive-black);  /* text on a solid green fill */
+
+  --text-primary:      var(--hive-text);
+  --text-secondary:    var(--hive-text-2);
+  --text-dim:          var(--hive-text-dim);
+  --text-accent:       var(--hive-green);
+  --text-meta:         var(--hive-cyan);
+}

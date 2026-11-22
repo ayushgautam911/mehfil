@@ -1,0 +1,33 @@
+<!-- @dsCard group="Type" viewport="700x210" name="Labels & Metadata" subtitle="Uppercase micro-type — section labels, chips, corner readouts" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body {
+    background: var(--surface-page);
+    font-family: var(--font-sans);
+    padding: var(--sp-xl);
+    box-sizing: border-box;
+    color: var(--text-primary);
+  }
+  .stack { display: flex; flex-direction: column; gap: var(--sp-lg); }
+  .row { display: flex; align-items: center; gap: var(--sp-lg); }
+  .meta { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--text-dim); width: 130px; flex: none; }
+  .section-label { font-size: var(--fs-xs); letter-spacing: var(--ls-extra-wide); color: var(--accent-primary); text-transform: uppercase; }
+  .chip-label { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--accent-secondary); text-transform: uppercase; }
+  .corner { font-size: 9px; letter-spacing: var(--ls-wide); color: var(--text-dim); }
+  .header-label { font-size: var(--fs-sm); letter-spacing: var(--ls-extra-wide); color: var(--text-primary); font-weight: var(--fw-bold); text-transform: uppercase; }
+</style>
+</head>
+<body>
+  <div class="stack">
+    <div class="row"><span class="meta">HEADER · 12 · 700</span><span class="header-label">HIVE / FEED</span></div>
+    <div class="row"><span class="meta">SECTION · 10 · 400</span><span class="section-label">// LINEUP</span></div>
+    <div class="row"><span class="meta">CHIP · 10 · 400</span><span class="chip-label">HARD TECHNO</span></div>
+    <div class="row"><span class="meta">CORNER · 9 · 400</span><span class="corner">N-SEA</span> <span class="corner">0X-88</span> <span class="corner">T-MINUS_0</span> <span class="corner">V0.9</span></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "hive",
+    "slug": "hive",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "hive",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "backgroundColor": "#0a0a0a",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.hive.member"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0a0a0a"
+      },
+      "package": "com.hive.member"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-asset",
+      "expo-web-browser"
+    ]
+  }
+}

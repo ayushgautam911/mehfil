@@ -1,0 +1,18 @@
+/* ============================================================
+   SPACING — mirrors theme.ts spacing scale (px)
+   A tight 4px-based ramp. The app leans on generous vertical
+   rhythm between sections (xl / xxl) and hairline dividers
+   rather than boxes to separate content.
+   ============================================================ */
+:root {
+  --sp-xs:   4px;
+  --sp-sm:   8px;
+  --sp-md:   12px;
+  --sp-lg:   16px;
+  --sp-xl:   24px;
+  --sp-xxl:  36px;
+  --sp-xxxl: 56px;
+
+  /* Standard screen gutter (paddingHorizontal on every screen) */
+  --gutter: var(--sp-lg);
+}

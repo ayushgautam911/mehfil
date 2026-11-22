@@ -1,0 +1,51 @@
+<!-- @dsCard group="Components" viewport="700x320" name="QR Pass & ChatBubble" subtitle="Approved-pass QR + 1:1 message bubbles" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body { background: var(--surface-page); font-family: var(--font-sans); padding: var(--sp-xl); box-sizing: border-box; color: var(--text-primary); display: flex; gap: var(--sp-xxl); align-items: center; }
+  .lbl { font-size: var(--fs-xs); letter-spacing: var(--ls-extra-wide); color: var(--accent-primary); text-transform: uppercase; margin: 0 0 var(--sp-md); }
+  .frame { position: relative; padding: var(--sp-md); }
+  .frame .b { position: absolute; width: 12px; height: 12px; border-color: var(--accent-primary); }
+  .tl{top:0;left:0;border-top:1.5px solid;border-left:1.5px solid} .tr{top:0;right:0;border-top:1.5px solid;border-right:1.5px solid}
+  .bl{bottom:0;left:0;border-bottom:1.5px solid;border-left:1.5px solid} .br{bottom:0;right:0;border-bottom:1.5px solid;border-right:1.5px solid}
+  .qr { width: 132px; height: 132px; display: grid; grid-template-columns: repeat(21,1fr); grid-template-rows: repeat(21,1fr); background: var(--surface-page); }
+  .code { font-family: var(--font-mono); font-weight: 700; font-size: var(--fs-md); color: var(--accent-primary); letter-spacing: var(--ls-wide); text-align: center; margin: var(--sp-md) 0 0; }
+  .bubble { max-width: 230px; padding: var(--sp-sm) var(--sp-md); margin-bottom: var(--sp-sm); }
+  .them { border: 0.5px solid var(--border-hairline); background: var(--surface-card); }
+  .me { border: 1px solid var(--accent-primary); background: var(--accent-primary-wash); margin-left: auto; }
+  .bubble p { margin: 0; font-size: var(--fs-md); line-height: var(--lh-body); }
+  .t { font-size: 9px; color: var(--text-dim); letter-spacing: var(--ls-wide); }
+</style>
+</head>
+<body>
+  <div>
+    <p class="lbl">// QR PASS</p>
+    <div class="frame">
+      <span class="b tl"></span><span class="b tr"></span><span class="b bl"></span><span class="b br"></span>
+      <div class="qr" id="qr"></div>
+    </div>
+    <p class="code">HIVE-2K7-X9F4</p>
+  </div>
+  <div style="flex:1">
+    <p class="lbl">// CHATBUBBLE</p>
+    <div class="bubble them"><p>welcome to void. read the floor rules pinned in your profile.</p></div>
+    <div class="t" style="margin-bottom:var(--sp-sm)">mar 18 · 19:22</div>
+    <div class="bubble me"><p>got it. can i bring a +1?</p></div>
+    <div class="t" style="text-align:right">19:40</div>
+  </div>
+  <script>
+    // render the same deterministic QR the component produces
+    var code="HIVE-2K7-X9F4",N=21,seed=0;
+    for(var i=0;i<code.length;i++)seed=(seed*31+code.charCodeAt(i))>>>0;
+    function rng(){seed=(seed*1103515245+12345)&0x7fffffff;return seed/0x7fffffff;}
+    function finder(r,c){return (r<7&&c<7)||(r<7&&c>=N-7)||(r>=N-7&&c<7);}
+    var qr=document.getElementById('qr'),html='';
+    for(var r=0;r<N;r++)for(var c=0;c<N;c++){var on;if(finder(r,c)){var rr=r>=N-7?r-(N-7):r,cc=c>=N-7?c-(N-7):c;on=rr===0||rr===6||cc===0||cc===6||(rr>=2&&rr<=4&&cc>=2&&cc<=4);}else{on=rng()>0.52;}html+='<span style="background:'+(on?'var(--accent-primary)':'transparent')+'"></span>';}
+    qr.innerHTML=html;
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!-- @dsCard group="Components" viewport="700x320" name="EventRow" subtitle="Feed list item — accent bar, match score, genre tags, PRIVATE flag" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body { background: var(--surface-page); font-family: var(--font-sans); padding: var(--sp-xl) var(--sp-xxl); box-sizing: border-box; }
+  .card { position: relative; padding: var(--sp-lg) 0 var(--sp-lg) var(--sp-md); border-bottom: 0.5px solid var(--border-hairline); }
+  .accent { position: absolute; left: 0; top: var(--sp-lg); bottom: var(--sp-lg); width: 1.5px; background: var(--accent-primary); opacity: .5; }
+  .head { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--sp-md); }
+  .trow { display: flex; align-items: center; gap: var(--sp-sm); flex-wrap: wrap; flex: 1; }
+  .name { font-weight: var(--fw-medium); font-size: var(--fs-md); letter-spacing: var(--ls-wide); color: var(--text-primary); }
+  .priv { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--accent-primary); border: 1px solid var(--accent-primary); padding: 1px 5px; }
+  .ms { display: flex; flex-direction: column; align-items: flex-end; }
+  .ms .n { font-weight: var(--fw-bold); font-size: var(--fs-lg); color: var(--accent-primary); }
+  .ms .c { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--accent-primary); opacity: .6; }
+  .det { font-size: var(--fs-sm); color: var(--text-secondary); margin-top: var(--sp-sm); }
+  .tags { display: flex; flex-wrap: wrap; gap: var(--sp-xs); margin-top: var(--sp-sm); }
+  .tag { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--accent-secondary); border: 1px solid var(--border-hairline); padding: 2px var(--sp-sm); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <span class="accent"></span>
+    <div class="head">
+      <div class="trow"><span class="name">VOID: WAREHOUSE SESSION</span></div>
+      <div class="ms"><span class="n">92%</span><span class="c">MATCH</span></div>
+    </div>
+    <div class="det">sat mar 22&nbsp;&nbsp;·&nbsp;&nbsp;23:00&nbsp;&nbsp;·&nbsp;&nbsp;warehouse</div>
+    <div class="tags"><span class="tag">HARD TECHNO</span><span class="tag">INDUSTRIAL</span></div>
+  </div>
+  <div class="card">
+    <span class="accent"></span>
+    <div class="head">
+      <div class="trow"><span class="name">MONOLITH</span><span class="priv">PRIVATE</span></div>
+      <div class="ms"><span class="n">85%</span><span class="c">MATCH</span></div>
+    </div>
+    <div class="det">fri apr 04&nbsp;&nbsp;·&nbsp;&nbsp;00:00&nbsp;&nbsp;·&nbsp;&nbsp;undisclosed location</div>
+    <div class="tags"><span class="tag">EXPERIMENTAL</span><span class="tag">DARK AMBIENT</span></div>
+  </div>
+</body>
+</html>

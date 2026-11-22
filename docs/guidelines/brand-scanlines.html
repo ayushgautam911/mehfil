@@ -1,0 +1,34 @@
+<!-- @dsCard group="Brand" viewport="700x220" name="Scanline texture" subtitle="Animated CRT overlay — .hive-scanlines, drifts + flickers" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body {
+    background: var(--surface-page);
+    font-family: var(--font-sans);
+    min-height: 220px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .center { position: relative; z-index: 3; text-align: center; }
+  .big { font-weight: var(--fw-bold); font-size: var(--fs-xxl); color: var(--text-primary); letter-spacing: var(--ls-extra-wide); text-shadow: var(--text-glow-green); }
+  .sub { font-size: var(--fs-xs); color: var(--text-secondary); letter-spacing: var(--ls-extra-wide); margin-top: var(--sp-sm); text-transform: uppercase; }
+  /* boost the demo scanline so it reads on a small card */
+  .demo-scan { --scanline-color: rgba(255,255,255,0.05); }
+</style>
+</head>
+<body>
+  <div class="hive-scanlines demo-scan"></div>
+  <div class="center">
+    <div class="big">SIGNAL</div>
+    <div class="sub">drift 0.8s · flicker every ~4s</div>
+  </div>
+</body>
+</html>

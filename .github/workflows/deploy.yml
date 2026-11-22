@@ -1,0 +1,119 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: Deploy to GCP VM
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # WHY BUILD HERE AND NOT ON THE VM:
+      # The GCP VM is an e2-micro (1 shared vCPU, 1GB RAM). Running npm build
+      # on it is slow and risks OOM killing the process mid-deploy. GitHub's
+      # runners are powerful (2 vCPU, 7GB RAM) and purpose-built for this.
+      # We build once here, copy the compiled output to the VM, and the VM
+      # never touches a compiler or dev dependencies.
+
+      - name: Build console app
+        working-directory: console-app
+        run: |
+          npm ci
+          npm run build
+
+      - name: Build backend
+        working-directory: backend
+        run: |
+          npm ci
+          npm run build
+
+      # Ensure target directories exist and have correct permissions for the SSH user.
+      - name: Prepare target directories on VM
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.GCP_VM_IP }}
+          username: ${{ secrets.GCP_VM_USER }}
+          key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
+          script: |
+            sudo mkdir -p /var/www/console-app /opt/hive/backend /opt/hive/scripts
+            sudo chown -R ${{ secrets.GCP_VM_USER }}:${{ secrets.GCP_VM_USER }} /var/www/console-app /opt/hive/backend /opt/hive/scripts
+
+      # Copy compiled frontend (static files) directly to Nginx web root.
+      # The VM serves these files as-is — no Node.js involved for the frontend.
+      - name: Copy console app dist to VM
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.GCP_VM_IP }}
+          username: ${{ secrets.GCP_VM_USER }}
+          key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
+          source: console-app/dist/
+          target: /var/www/console-app/
+          strip_components: 2
+
+      # Copy compiled backend JS (not source TypeScript), package files, and database migrations to the VM.
+      # The VM only needs to run the output — no tsc, no ts-node.
+      - name: Copy backend files to VM
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.GCP_VM_IP }}
+          username: ${{ secrets.GCP_VM_USER }}
+          key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
+          source: backend/dist/,backend/package.json,backend/package-lock.json,backend/drizzle/
+          target: /opt/hive/backend/
+          strip_components: 1
+
+      # Copy the env-generation script so the deploy can rebuild backend/.env
+      # from Secret Manager (keeps runtime config/secrets in sync on every deploy).
+      - name: Copy env-generation script to VM
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.GCP_VM_IP }}
+          username: ${{ secrets.GCP_VM_USER }}
+          key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
+          source: scripts/write-backend-env.sh
+          target: /opt/hive/scripts/
+          strip_components: 1
+
+      # Final SSH step is now minimal — install production deps only (no
+      # TypeScript, no build tools), run migrations, restart the service,
+      # then verify it came up healthy before marking the deploy as successful.
+      - name: Restart backend and verify health
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.GCP_VM_IP }}
+          username: ${{ secrets.GCP_VM_USER }}
+          key: ${{ secrets.GCP_SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+
+            cd /opt/hive/backend
+
+            # --omit=dev skips TypeScript, drizzle-kit, etc. — only runtime deps.
+            # Much faster than a full npm ci and safe to run on the tiny VM.
+            npm ci --omit=dev
+
+            # Regenerate backend/.env from Secret Manager so config + secrets
+            # (DB, JWT, QR, SMTP) always match the source of truth on every deploy.
+            chmod +x /opt/hive/scripts/write-backend-env.sh
+            PROJECT_ID=your-gcp-project-id /opt/hive/scripts/write-backend-env.sh
+
+            # Run database migrations
+            NODE_TLS_REJECT_UNAUTHORIZED=0 node dist/db/migrate.js
+
+            sudo systemctl restart hive-backend
+
+            # Give the process time to bind to the port before checking.
+            sleep 5
+
+            # Fail the deploy if the backend didn't come up healthy.
+            # This catches crashes, migration failures, bad env vars, etc.
+            HEALTH=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:3000/health)
+            if [ "$HEALTH" != "200" ]; then
+              echo "Health check failed — HTTP $HEALTH. Deploy marked as failed."
+              exit 1
+            fi
+
+            echo "Deploy complete. Health check passed (HTTP 200)."

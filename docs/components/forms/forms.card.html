@@ -1,0 +1,35 @@
+<!-- @dsCard group="Components" viewport="700x240" name="Forms — GenreChip & Input" subtitle="Selectable chips + underlined fields" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body { background: var(--surface-page); font-family: var(--font-sans); padding: var(--sp-xl); box-sizing: border-box; }
+  .section-label { font-size: var(--fs-xs); letter-spacing: var(--ls-extra-wide); color: var(--accent-secondary); text-transform: uppercase; margin-bottom: var(--sp-md); }
+  .chips { display: flex; flex-wrap: wrap; gap: var(--sp-sm); margin-bottom: var(--sp-xl); }
+  .chip { font-size: var(--fs-sm); letter-spacing: var(--ls-normal); padding: calc(var(--sp-sm) + 2px) var(--sp-md); border: 1px solid var(--border-hairline); color: var(--text-secondary); background: transparent; }
+  .chip.sel { border-color: var(--accent-primary); background: var(--accent-primary-wash); color: var(--accent-primary); }
+  .field { border: none; border-bottom: 1px solid var(--border-hairline); background: transparent; color: var(--text-primary); font-family: var(--font-sans); font-size: var(--fs-md); padding: var(--sp-sm) 0; width: 320px; outline: none; }
+  .field::placeholder { color: var(--text-dim); }
+  .field.focus { border-bottom-color: var(--accent-primary); }
+</style>
+</head>
+<body>
+  <div class="section-label">// GENRE CHIPS</div>
+  <div class="chips">
+    <span class="chip sel">acid</span>
+    <span class="chip sel">dub techno</span>
+    <span class="chip">hard techno</span>
+    <span class="chip">industrial</span>
+    <span class="chip">minimal</span>
+    <span class="chip">detroit</span>
+  </div>
+  <div class="section-label">// INPUT — focused / idle</div>
+  <div style="display:flex; gap: var(--sp-xxl); align-items:flex-end;">
+    <input class="field focus" placeholder="search..." value="oscar mulero" />
+    <input class="field" placeholder="search..." />
+  </div>
+</body>
+</html>

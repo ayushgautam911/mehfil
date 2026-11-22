@@ -1,0 +1,37 @@
+<!-- @dsCard group="Components" viewport="700x200" name="GlitchButton" subtitle="Idle · hover (glitched) · block · disabled" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body {
+    background: var(--surface-page);
+    font-family: var(--font-sans);
+    padding: var(--sp-xl);
+    box-sizing: border-box;
+  }
+  .grid { display: flex; flex-direction: column; gap: var(--sp-lg); }
+  .row { display: flex; align-items: center; gap: var(--sp-xl); }
+  .cap { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--text-dim); text-transform: uppercase; width: 90px; flex: none; }
+  .btn {
+    font-weight: var(--fw-bold); font-size: var(--fs-sm); letter-spacing: var(--ls-ultra-wide);
+    text-transform: uppercase; padding: var(--sp-md) var(--sp-xxl);
+    border: var(--border-accent); border-radius: var(--radius-none);
+    background: var(--accent-primary-wash); color: var(--accent-primary); cursor: pointer;
+  }
+  .btn.hot { background: var(--accent-primary); color: var(--on-accent); box-shadow: var(--glow-green-md); transform: translateX(-2px); }
+  .btn.block { width: 360px; }
+  .btn.disabled { opacity: 0.35; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="row"><span class="cap">idle</span><button class="btn">ENTER&nbsp;&rsaquo;</button></div>
+    <div class="row"><span class="cap">hover</span><button class="btn hot">! ENTER !</button></div>
+    <div class="row"><span class="cap">block</span><button class="btn block">CONTINUE&nbsp;&rsaquo;</button></div>
+    <div class="row"><span class="cap">disabled</span><button class="btn disabled">ISSUE PASS&nbsp;&rsaquo;</button></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+/* ============================================================
+   EFFECTS — borders, radius, glow, scanlines
+   The "teletech" texture lives here. Everything is hard-edged
+   (radius 0) except one floating element: the pill tab bar.
+   Depth is conveyed by phosphor GLOW, never by drop shadows.
+   ============================================================ */
+:root {
+  /* --- Radius --- */
+  --radius-none: 0px;        /* the default for EVERYTHING */
+  --radius-pill: 28px;       /* the single exception: floating tab bar */
+
+  /* --- Borders --- */
+  --border-w: 1px;
+  --border-hair: 0.5px;      /* StyleSheet.hairlineWidth equivalent */
+  --border: var(--border-w) solid var(--border-hairline);
+  --border-accent: var(--border-w) solid var(--accent-primary);
+
+  /* --- Phosphor glow (text & box) --- */
+  --glow-green-sm: 0 0 8px rgba(0, 255, 65, 0.55);
+  --glow-green-md: 0 0 15px rgba(0, 255, 65, 0.45);
+  --glow-cyan-sm:  0 0 8px rgba(10, 189, 198, 0.5);
+  /* text-shadow form (wordmarks, active tab labels) */
+  --text-glow-green: 0 0 8px var(--accent-primary);
+  --text-glow-green-lg: 0 0 15px var(--accent-primary);
+
+  /* --- Tab-bar floating glow (subtle, the only soft shadow) --- */
+  --shadow-float: 0 4px 10px rgba(0, 255, 65, 0.08);
+
+  /* --- Scanline overlay --- */
+  --scanline-color: rgba(255, 255, 255, 0.015);
+  --scanline-height: 1.5px;
+  --scanline-gap: 2.5px;
+
+  /* --- Motion --- */
+  --ease-mech: linear;                          /* scanline drift, boot ticks */
+  --ease-snap: cubic-bezier(0.2, 0.9, 0.2, 1);  /* spring-ish indicator slide */
+  --dur-glitch: 40ms;                           /* glitch burst frame */
+  --dur-fast: 150ms;
+  --dur-warp: 350ms;                            /* enter / screen warp */
+}
+
+/* ---- Reusable texture utilities ---- */
+
+/* Animated CRT scanlines. Drop into any full-bleed container:
+   <div class="hive-scanlines"></div> (position:absolute, pointer-events:none). */
+.hive-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--scanline-color) 0,
+    var(--scanline-color) var(--scanline-height),
+    transparent var(--scanline-height),
+    transparent calc(var(--scanline-height) + var(--scanline-gap))
+  );
+  opacity: 0.8;
+  animation: hive-scan 0.8s linear infinite, hive-flicker 4.2s steps(1) infinite;
+}
+@keyframes hive-scan {
+  from { background-position-y: 0; }
+  to   { background-position-y: calc(var(--scanline-height) + var(--scanline-gap)); }
+}
+@keyframes hive-flicker {
+  0%, 95%   { opacity: 0.8; }
+  96%       { opacity: 0.35; }
+  97%       { opacity: 0.85; }
+  98%       { opacity: 0.2; }
+  100%      { opacity: 0.9; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hive-scanlines { animation: none; }
+}

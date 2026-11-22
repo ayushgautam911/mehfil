@@ -1,0 +1,8 @@
+# Example terraform.tfvars template
+# Copy this file to terraform.tfvars and customize the values.
+# Do NOT commit your local terraform.tfvars to Git.
+
+project_id   = "your-gcp-project-id"
+region       = "us-east1"
+zone         = "us-east1-b"
+repo_url     = "https://github.com/genuinly-dumb/hive.git"

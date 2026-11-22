@@ -1,0 +1,56 @@
+<!-- @dsCard group="Brand" viewport="700x300" name="Wordmark" subtitle="H I V E — typographic mark, bracket frame, green glow" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body {
+    background: var(--surface-page);
+    font-family: var(--font-sans);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    padding: var(--sp-xl);
+    box-sizing: border-box;
+  }
+  .frame {
+    position: relative;
+    padding: var(--sp-xl) var(--sp-xxl);
+  }
+  .frame .b { position: absolute; width: 16px; height: 16px; border-color: var(--text-dim); }
+  .tl { top: 0; left: 0; border-top: 1.5px solid; border-left: 1.5px solid; }
+  .tr { top: 0; right: 0; border-top: 1.5px solid; border-right: 1.5px solid; }
+  .bl { bottom: 0; left: 0; border-bottom: 1.5px solid; border-left: 1.5px solid; }
+  .br { bottom: 0; right: 0; border-bottom: 1.5px solid; border-right: 1.5px solid; }
+  .wordmark {
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-hero);
+    color: var(--text-primary);
+    letter-spacing: var(--ls-wordmark);
+    text-shadow: var(--text-glow-green);
+    margin: 0;
+  }
+  .tag {
+    text-align: center;
+    margin-top: var(--sp-lg);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--ls-extra-wide);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+  <div>
+    <div class="frame">
+      <span class="b tl"></span><span class="b tr"></span>
+      <span class="b bl"></span><span class="b br"></span>
+      <h1 class="wordmark">H I V E</h1>
+    </div>
+    <div class="tag">Private events. Curated access.</div>
+  </div>
+</body>
+</html>

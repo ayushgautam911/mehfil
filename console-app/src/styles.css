@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@import "./tokens.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--surface-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+input {
+  font-family: var(--font-sans);
+}
+input::placeholder {
+  color: var(--text-dim);
+}
+
+/* Animated CRT scanlines */
+.hive-scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  mix-blend-mode: screen;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--scanline-color) 0,
+    var(--scanline-color) var(--scanline-height),
+    transparent var(--scanline-height),
+    transparent calc(var(--scanline-height) + var(--scanline-gap))
+  );
+  opacity: 0.5;
+  animation: hive-scan 0.8s linear infinite, hive-flicker 4.2s steps(1) infinite;
+}
+@keyframes hive-scan {
+  from { background-position-y: 0; }
+  to   { background-position-y: calc(var(--scanline-height) + var(--scanline-gap)); }
+}
+@keyframes hive-flicker {
+  0%, 95% { opacity: 0.5; }
+  96%     { opacity: 0.2; }
+  97%     { opacity: 0.55; }
+  98%     { opacity: 0.15; }
+  100%    { opacity: 0.55; }
+}
+
+/* Scanner scan-line + screen fade / result pop */
+@keyframes scan-line {
+  0%   { top: 24px; }
+  50%  { top: calc(100% - 24px); }
+  100% { top: 24px; }
+}
+.hive-fade { animation: hive-fade-in 220ms ease both; }
+@keyframes hive-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+.hive-pop { animation: hive-pop-in 180ms cubic-bezier(0.2, 0.9, 0.2, 1) both; }
+@keyframes hive-pop-in {
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Real hover states (rows, buttons) — kept from the prototype intent */
+.c-row:hover { background: rgba(255, 255, 255, 0.02); }
+.c-btn { transition: background 120ms, color 120ms, box-shadow 120ms; }
+.c-btn:hover { box-shadow: var(--glow-green-sm); }
+.c-navitem:hover { background: rgba(0, 255, 65, 0.04); }
+.c-clickable { cursor: pointer; }
+
+/* Honor reduced motion — gate decorative loops */
+@media (prefers-reduced-motion: reduce) {
+  .hive-scanlines { animation: none; }
+  .hive-scan-line { animation: none !important; }
+  .hive-fade, .hive-pop { animation: none; }
+}

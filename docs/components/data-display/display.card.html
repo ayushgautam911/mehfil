@@ -1,0 +1,75 @@
+<!-- @dsCard group="Components" viewport="700x300" name="Data display — Tag, Badge, MatchScore, FreqBar, StatBlock" subtitle="Readouts: tags, status flags, match %, meters, stats" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body { background: var(--surface-page); font-family: var(--font-sans); padding: var(--sp-xl); box-sizing: border-box; color: var(--text-primary); }
+  .lbl { font-size: var(--fs-xs); letter-spacing: var(--ls-extra-wide); color: var(--accent-primary); text-transform: uppercase; margin: 0 0 var(--sp-md); }
+  .block { margin-bottom: var(--sp-xl); }
+  .flex { display: flex; align-items: center; gap: var(--sp-sm); flex-wrap: wrap; }
+  .tag { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--accent-secondary); border: 1px solid var(--border-hairline); padding: 2px var(--sp-sm); }
+  .pill { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--accent-primary); border: 1px solid var(--accent-primary); padding: 1px 5px; }
+  .brk { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--accent-primary); }
+  .brk.dim { color: var(--text-dim); }
+  .ms { display: flex; flex-direction: column; align-items: flex-end; }
+  .ms .n { font-weight: var(--fw-bold); font-size: var(--fs-lg); color: var(--accent-primary); }
+  .ms .c { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--accent-primary); opacity: .6; text-transform: uppercase; }
+  .freq { display: flex; align-items: center; gap: var(--sp-md); margin-bottom: var(--sp-sm); }
+  .freq .fl { font-size: var(--fs-xs); text-transform: uppercase; width: 90px; }
+  .freq .tr { flex: 1; height: 2px; background: var(--border-hairline); }
+  .freq .fi { height: 2px; background: var(--accent-primary); }
+  .freq .fp { font-size: var(--fs-xs); color: var(--accent-primary); width: 36px; text-align: right; }
+  .stats { display: flex; align-items: center; }
+  .stat { flex: 1; text-align: center; }
+  .stat .sv { font-weight: var(--fw-bold); font-size: var(--fs-xl); }
+  .stat .sv.acc { color: var(--accent-primary); }
+  .stat .sc { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--text-secondary); text-transform: uppercase; margin-top: var(--sp-xs); }
+  .sdiv { width: 1px; height: 30px; background: var(--border-hairline); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-xl); }
+</style>
+</head>
+<body>
+  <div class="cols">
+    <div>
+      <div class="block">
+        <p class="lbl">// TAGS &amp; BADGES</p>
+        <div class="flex">
+          <span class="tag">HARD TECHNO</span>
+          <span class="tag">INDUSTRIAL</span>
+          <span class="pill">PRIVATE</span>
+          <span class="brk">[LOCKED]</span>
+          <span class="brk dim">[SOLD OUT]</span>
+        </div>
+      </div>
+      <div class="block">
+        <p class="lbl">// MATCH SCORE</p>
+        <div class="flex" style="gap: var(--sp-xxl)">
+          <div class="ms"><span class="n">92%</span><span class="c">MATCH</span></div>
+          <div class="ms"><span class="n">78%</span><span class="c">MATCH</span></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="block">
+        <p class="lbl">// FREQUENCIES</p>
+        <div class="freq"><span class="fl">HARD TECHNO</span><span class="tr"><span class="fi" style="width:45%"></span></span><span class="fp">45%</span></div>
+        <div class="freq"><span class="fl">ACID</span><span class="tr"><span class="fi" style="width:30%"></span></span><span class="fp">30%</span></div>
+        <div class="freq"><span class="fl">MINIMAL</span><span class="tr"><span class="fi" style="width:25%"></span></span><span class="fp">25%</span></div>
+      </div>
+      <div class="block">
+        <p class="lbl">// STATS</p>
+        <div class="stats">
+          <div class="stat"><div class="sv">12</div><div class="sc">EVENTS</div></div>
+          <div class="sdiv"></div>
+          <div class="stat"><div class="sv">3</div><div class="sc">REFERRED</div></div>
+          <div class="sdiv"></div>
+          <div class="stat"><div class="sv acc">[87]</div><div class="sc">SCORE</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

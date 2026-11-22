@@ -1,0 +1,29 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Ground & Structure" subtitle="Pure black page, near-black surfaces, hairline border" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body {
+    background: var(--surface-page);
+    font-family: var(--font-sans);
+    padding: var(--sp-xl);
+    box-sizing: border-box;
+    display: flex;
+    gap: var(--sp-md);
+  }
+  .sw { flex: 1; }
+  .chip { height: 76px; border: var(--border); }
+  .name { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--text-primary); text-transform: uppercase; margin-top: var(--sp-sm); }
+  .hex { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--text-secondary); margin-top: 2px; }
+</style>
+</head>
+<body>
+  <div class="sw"><div class="chip" style="background: var(--hive-black)"></div><div class="name">Black / Page</div><div class="hex">#000000</div></div>
+  <div class="sw"><div class="chip" style="background: var(--hive-surface)"></div><div class="name">Surface</div><div class="hex">#0d0d0d</div></div>
+  <div class="sw"><div class="chip" style="background: var(--hive-surface-2)"></div><div class="name">Chrome</div><div class="hex">#0a0a0a</div></div>
+  <div class="sw"><div class="chip" style="background: var(--hive-border)"></div><div class="name">Border</div><div class="hex">#1a1a1a</div></div>
+</body>
+</html>

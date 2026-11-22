@@ -1,0 +1,79 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might be created by local IDE
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# dependencies
+node_modules/
+member-app/node_modules/
+
+# Expo / builds
+.expo/
+member-app/.expo/
+dist/
+member-app/dist/
+web-build/
+member-app/web-build/
+expo-env.d.ts
+member-app/expo-env.d.ts
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+# generated native folders
+/ios
+/android
+member-app/ios
+member-app/android
+
+# wrangler
+.wrangler/
+
+# Hive build artifacts & logs
+hive-code.tar.gz
+*.log
+
+# Terraform state & variables
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+
+# Environment secrets files
+.env
+.env.*
+.env.production
+.env.development
+.env.local

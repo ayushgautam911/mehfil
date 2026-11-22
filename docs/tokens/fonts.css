@@ -1,0 +1,13 @@
+/* ============================================================
+   FONTS — Space Grotesk
+   The app uses @expo-google-fonts/space-grotesk (400 / 500 / 700).
+   Space Grotesk is the canonical Hive typeface. Loaded here from
+   Google Fonts. If you need fully-offline binaries, swap this
+   @import for self-hosted @font-face rules pointing at .woff2 files.
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+/* Space Mono is used ONLY as a fallback metric for the rare
+   true-monospace readouts (QR tokens, hashes). Space Grotesk
+   already reads as technical, so monospace is reserved. */
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");

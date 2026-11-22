@@ -1,0 +1,40 @@
+<!-- @dsCard group="Components" viewport="700x240" name="Avatar & StatusBadge" subtitle="Monogram identity tiles + colour-coded state readouts" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body { background: var(--surface-page); font-family: var(--font-sans); padding: var(--sp-xl); box-sizing: border-box; color: var(--text-primary); }
+  .lbl { font-size: var(--fs-xs); letter-spacing: var(--ls-extra-wide); color: var(--accent-primary); text-transform: uppercase; margin: 0 0 var(--sp-md); }
+  .row { display: flex; align-items: center; gap: var(--sp-lg); flex-wrap: wrap; margin-bottom: var(--sp-xl); }
+  .av { background: var(--surface-card); border: 1px solid var(--border-hairline); display: flex; align-items: center; justify-content: center; font-weight: var(--fw-bold); }
+  .av.glow { border-color: var(--accent-primary); box-shadow: var(--glow-green-sm); color: var(--accent-primary); }
+  .av.cyan { border-color: var(--accent-secondary); box-shadow: var(--glow-cyan-sm); color: var(--accent-secondary); }
+  .brk { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); text-transform: uppercase; }
+</style>
+</head>
+<body>
+  <p class="lbl">// AVATAR</p>
+  <div class="row">
+    <span class="av" style="width:56px;height:56px;font-size:19px;color:var(--accent-primary)">VO</span>
+    <span class="av glow" style="width:44px;height:44px;font-size:15px">NS</span>
+    <span class="av" style="width:40px;height:40px;font-size:14px;color:var(--accent-primary)">S</span>
+    <span class="av cyan" style="width:32px;height:32px;font-size:11px">DK</span>
+    <span class="av" style="width:28px;height:28px;font-size:10px;color:var(--accent-primary)">CY</span>
+  </div>
+  <p class="lbl">// STATUSBADGE</p>
+  <div class="row" style="margin-bottom:0">
+    <span class="brk" style="color:var(--accent-primary)">[APPROVED]</span>
+    <span class="brk" style="color:var(--accent-primary)">[MEMBER]</span>
+    <span class="brk" style="color:var(--accent-primary)">[PUBLISHED]</span>
+    <span class="brk" style="color:var(--accent-secondary)">[PENDING]</span>
+    <span class="brk" style="color:var(--accent-secondary)">[INVITED]</span>
+    <span class="brk" style="color:var(--accent-secondary)">[DRAFT]</span>
+    <span class="brk" style="color:var(--text-secondary)">[DECLINED]</span>
+    <span class="brk" style="color:var(--text-secondary)">[BLOCKED]</span>
+    <span class="brk" style="color:var(--text-dim)">[USED]</span>
+  </div>
+</body>
+</html>

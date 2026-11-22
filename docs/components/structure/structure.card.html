@@ -1,0 +1,44 @@
+<!-- @dsCard group="Components" viewport="700x260" name="Structure — CornerFrame & SectionLabel" subtitle="Focal bracket frames + // section headers" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  html, body { margin: 0; }
+  body { background: var(--surface-page); font-family: var(--font-sans); padding: var(--sp-xl); box-sizing: border-box; color: var(--text-primary); display: flex; gap: var(--sp-xxl); align-items: center; }
+  .frame { position: relative; padding: var(--sp-xl) var(--sp-xxl); }
+  .frame .b { position: absolute; width: 12px; height: 12px; }
+  .tl { top:0; left:0; border-top: 1.5px solid; border-left: 1.5px solid; }
+  .tr { top:0; right:0; border-top: 1.5px solid; border-right: 1.5px solid; }
+  .bl { bottom:0; left:0; border-bottom: 1.5px solid; border-left: 1.5px solid; }
+  .br { bottom:0; right:0; border-bottom: 1.5px solid; border-right: 1.5px solid; }
+  .green { color: var(--accent-primary); }
+  .dim { color: var(--text-dim); }
+  .word { font-weight: var(--fw-bold); font-size: var(--fs-xxl); letter-spacing: var(--ls-ultra-wide); color: var(--text-primary); text-shadow: var(--text-glow-green); }
+  .bordered { border: 0.5px solid var(--border-hairline); }
+  .brk { font-size: var(--fs-xs); letter-spacing: var(--ls-wide); color: var(--accent-primary); display:block; margin-bottom: var(--sp-sm); }
+  .ttl { font-weight: var(--fw-bold); font-size: var(--fs-xl); letter-spacing: var(--ls-wide); }
+  .labels { display: flex; flex-direction: column; gap: var(--sp-lg); }
+  .sec { font-size: var(--fs-xs); letter-spacing: var(--ls-extra-wide); text-transform: uppercase; margin: 0; }
+</style>
+</head>
+<body>
+  <div class="frame dim">
+    <span class="b tl dim"></span><span class="b tr dim"></span><span class="b bl dim"></span><span class="b br dim"></span>
+    <span class="word">H I V E</span>
+  </div>
+
+  <div class="frame bordered">
+    <span class="b tl green"></span><span class="b tr green"></span><span class="b bl green"></span><span class="b br green"></span>
+    <span class="brk">[92% MATCH]</span>
+    <span class="ttl">VOID: WAREHOUSE</span>
+  </div>
+
+  <div class="labels">
+    <p class="sec green">// LINEUP</p>
+    <p class="sec green">// LOCATION</p>
+    <p class="sec" style="color: var(--accent-secondary)">YOUR REFERRAL CODE</p>
+  </div>
+</body>
+</html>
